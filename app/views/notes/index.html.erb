@@ -1,0 +1,14 @@
+<div class='centered'>
+  <a href="/notes/new" class="btn btn-large btn-primary">Make a new note</a>
+</div>
+<hr noshade/>
+<ul class="notes-list">
+  <!-- for each note passed to the template in the variable notes -->
+  <% @notes.each do |note| %>
+    <h1><a href="/notes/<%= note.id%>"><%= note.title %></a></h1>
+    <h2>By <%= note.author %></h2>
+    <hr noshade/>
+    <p><%= note.content %></p>
+    <%= link_to("Delete", note, method: :delete, class: 'action') %>
+  <% end %>
+</ul><!-- .notes-list -->
